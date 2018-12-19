@@ -27,7 +27,7 @@ while fin !=True:
 		if jugador1 == True:
 			nb = input('Jugador 1 Elige un numero no seleccionado')
 			if re.search('[A-Za-z-!$%^&*()_+|~=`@{}/[\]:";/\/]', nb):
-				print('Has pulsado una letra')
+				print('No has pulsado un número')
 			elif int(nb) > 9 or int(nb) == 0:
 				print('Elija otro numero')
 			else:
@@ -40,10 +40,12 @@ while fin !=True:
 						jugador1 = False
 						jugador2 = True
 		elif jugador2 == True:
-			if int(nb) > 9 or int(nb) == 0:
+			nb = input('Jugador 2 Elige un numero no seleccionado')
+			if re.search('[A-Za-z-!$%^&*()_+|~=`@{}/[\]:";/\/]', nb):
+				print('No has pulsado un número')
+			elif int(nb) > 9 or int(nb) == 0:
 				print('Elija otro numero')
 			else:
-				nb = input('Jugador 2 Elige un numero no seleccionado')
 				if nb == Numeros[int(nb)]:
 					Numeros[int(nb)] = Numeros[11]
 					if posiciones[int(nb)] != '0':
