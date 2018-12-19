@@ -1,3 +1,7 @@
+
+import re
+import sys
+
 fin = False
 jugador1 = True
 jugador2 = False
@@ -22,7 +26,9 @@ while fin !=True:
 	else:
 		if jugador1 == True:
 			nb = input('Jugador 1 Elige un numero no seleccionado')
-			if int(nb) > 9:
+			if re.search('[A-Za-z-!$%^&*()_+|~=`@{}/[\]:";/\/]', nb):
+				print('Has pulsado una letra')
+			elif int(nb) > 9 or int(nb) == 0:
 				print('Elija otro numero')
 			else:
 				if nb == Numeros[int(nb)]:
@@ -34,7 +40,7 @@ while fin !=True:
 						jugador1 = False
 						jugador2 = True
 		elif jugador2 == True:
-			if int(nb) > 9:
+			if int(nb) > 9 or int(nb) == 0:
 				print('Elija otro numero')
 			else:
 				nb = input('Jugador 2 Elige un numero no seleccionado')
